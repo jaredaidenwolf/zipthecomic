@@ -21,7 +21,7 @@ brew install rar
 ### Clone the repository and install dependencies
 
 ```bash
-git clone <your_repo_url_here>
+git clone https://github.com/jaredaidenwolf/zipthecomic
 cd zipthecomic
 bundle install
 ```
