@@ -48,6 +48,14 @@ Handles all logic related to converting `.cbr` files to `.cbz`, including:
 - Replace/delete behavior
 - Flatten output during conversion
 
+#### ComicInfo.xml Handling
+
+If a `ComicInfo.xml` file exists in the original `.cbr` archive (as is common with files tagged by ComicTagger or similar tools), it is automatically preserved and included in the new `.cbz` archive.
+
+If no such file exists, a default `ComicInfo.xml` is generated with basic title and summary information based on the filename.
+
+A message indicating whether the metadata was preserved or generated is logged to both the log file and the terminal during conversion.
+
 ### `lib/zipthecomic/flattener.rb`
 
 Handles flattening of directory structure for `.cbr`/`.cbz` files:
@@ -69,6 +77,7 @@ We will use:
 
 - `RSpec` for testing
 - `SimpleCov` for code coverage
+- `fakefs` for isolated file testing
 
 All specs will go in the `spec/` directory with `spec_helper.rb` and `.rspec` config.
 
@@ -76,10 +85,7 @@ All specs will go in the `spec/` directory with `spec_helper.rb` and `.rspec` co
 
 ## 🗺️ Roadmap (Planned Features)
 
-- Add support for converting extracted images to WebP or AVIF during `.cbz` creation
-- Optimize converted archives for quality and file size
-- Add CLI flags for `--optimize`, `--quality`, `--resize`
-- Chainable rake task or `auto` mode
+- Add support for repacking/optimizing `.cbz` files, while maintaining the original file structure and metadata
 
 ---
 
@@ -140,9 +146,7 @@ end
 
 ## 🧰 Tooling Wishlist (Optional for contributors)
 
-- Add [standard](https://github.com/standardrb/standard) for style checks
-- Use [fakefs](https://github.com/fakefs/fakefs) for isolated file testing
-- Add a rake task to convert + flatten in one command
+- Github Actions for CI/CD
 
 ---
 

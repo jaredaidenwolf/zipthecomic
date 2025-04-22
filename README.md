@@ -1,6 +1,11 @@
 # 📚 zipthecomic
 
-**zipthecomic** is a command-line tool for batch-converting `.cbr` comic book archives to `.cbz`, flattening folder structures, and cleaning up your comic book library.
+![Ruby](https://img.shields.io/badge/Ruby-3.2-red)
+![Thor](https://img.shields.io/badge/Built%20with-Thor-yellow?logo=rubygems&logoColor=yellow)
+![License](https://img.shields.io/badge/License-MIT-blue)
+<!-- ![License](https://img.shields.io/github/license/jaredaidenwolf/zipthecomic) -->
+
+**zipthecomic** is a command-line tool for batch-converting `.cbr` comic book archives to `.cbz`, while preserving existing metadata. There are also options to flatten folder structures, and generally clean up your comic book library.
 
 > 🧑‍💻 This CLI tool is designed for **macOS** (tested with Homebrew) and is **likely to work on Linux** as well. Windows is not currently supported.
 
@@ -81,6 +86,14 @@ bin/zipthecomic convert comics output --replace
 ```bash
 bin/zipthecomic convert comics output --force-replace
 ```
+
+---
+
+### 🔖 Metadata Preservation
+
+If your `.cbr` files contain a `ComicInfo.xml` file (commonly created by tools like ComicTagger), **zipthecomic will automatically preserve and transfer it** into the resulting `.cbz` file.
+
+If no metadata file is found, a simple one will be generated based on the file name.
 
 ---
 
